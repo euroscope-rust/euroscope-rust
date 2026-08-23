@@ -8,5 +8,10 @@ fn main() {
         // `/DELAYLOAD` marks the EuroScope import so it resolves lazily.
         println!("cargo::rustc-link-arg=/DELAYLOAD:EuroScopePlugInDll.dll");
         println!("cargo::rustc-link-arg=delayimp.lib");
+        // A test binary that happens to pull in no shim object at all imports
+        // nothing from EuroScope, and the linker warns that /DELAYLOAD had
+        // nothing to do (LNK4199). That is the expected case here, and CI
+        // builds tests with `-Dwarnings`.
+        println!("cargo::rustc-link-arg=/IGNORE:4199");
     }
 }

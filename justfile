@@ -38,6 +38,7 @@ alias t := test
 # Run tests
 test:
     $env:EUROSCOPE_PLUGIN_DELAYLOAD = "1"; cargo test --workspace --all-features
+    $env:EUROSCOPE_PLUGIN_DELAYLOAD = "1"; cargo test --workspace --all-features --doc
 [private]
 ci-test:
     $env:RUSTFLAGS = "-Dwarnings"; just test

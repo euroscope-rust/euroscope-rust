@@ -315,3 +315,17 @@ EuroScopePlugInExit(void)
   }
   g_plugin = nullptr;
 }
+
+// Link seed. Nothing in Rust calls the two exports above -- EuroScope looks
+// them up by name once the DLL is loaded -- so without a reference into this
+// translation unit the linker would leave it in the static library and the
+// finished plugin would export nothing.
+//
+// `register_plugin!` references this symbol, which drags this object (and with
+// it the exports, and `radar_screen.cpp` via `rust_make_radar_screen`) into the
+// link. Anything that links the shim *without* registering a plugin -- the
+// crates' own test harnesses, say -- leaves it behind, along with this file's
+// calls to the `rust_*` callbacks that only `register_plugin!` defines.
+extern "C" void
+es_shim_anchor(void)
+{}

@@ -4,9 +4,9 @@
 //! - locate the EuroScope plugin "SDK" (header and lib file)
 //! - compile the C++ glue shim (`src/shim/`) against that header //, targeting 32-bit x86
 //!   (EuroScope is a 32-bit MFC app)
-//! - link the shim into downstream crates with `+whole-archive` so the `__declspec(dllexport)`
-//!   entry points (`EuroScopePlugInInit` / `EuroScopePlugInExit`) survive into the final `cdylib`
-//!   even though no Rust code references them directly
+//! - link the shim into downstream crates, letting the usual static-library rules decide which
+//!   objects come along; `register_plugin!` references `es_shim_anchor` to pull in the one holding
+//!   the `__declspec(dllexport)` entry points, which no Rust code calls directly
 //! - link the EuroScope import library so the shim's calls into `EuroScope.exe` resolve
 
 use std::{
@@ -66,6 +66,11 @@ fn main() {
         // `/DELAYLOAD` marks the EuroScope import so it resolves lazily.
         println!("cargo::rustc-link-arg=/DELAYLOAD:EuroScopePlugInDll.dll");
         println!("cargo::rustc-link-arg=delayimp.lib");
+        // A test binary that happens to pull in no shim object at all imports
+        // nothing from EuroScope, and the linker warns that /DELAYLOAD had
+        // nothing to do (LNK4199). That is the expected case here, and CI
+        // builds tests with `-Dwarnings`.
+        println!("cargo::rustc-link-arg=/IGNORE:4199");
     }
 
     // Check we're compiling against the correct target
@@ -127,9 +132,12 @@ fn main() {
 
     let out_dir = var("OUT_DIR").unwrap();
     println!("cargo:rustc-link-search=native={out_dir}");
-    // whole-archive: force every object (including the unreferenced exports)
-    // into the final DLL.
-    println!("cargo:rustc-link-lib=static:+whole-archive=euroscope_shim");
+    // Deliberately *not* `+whole-archive`. Forcing every object in would drag
+    // `core.cpp` and `radar_screen.cpp` into artifacts that never act as a
+    // plugin -- notably this workspace's own test harnesses -- leaving their
+    // calls to the `register_plugin!`-provided `rust_*` callbacks unresolved.
+    // `es_shim_anchor` gets those objects into real plugins instead.
+    println!("cargo:rustc-link-lib=static=euroscope_shim");
 
     // The EuroScope import library: satisfies the shim's calls into
     // EuroScope.exe.
