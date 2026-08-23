@@ -9,25 +9,38 @@ alias f := fmt
 fmt:
     Get-ChildItem -Recurse -Include *.cpp, *.h | ForEach-Object { clang-format -style=Mozilla -i $_.FullName }
     cargo +nightly fmt
+[private]
+ci-fmt:
+    Get-ChildItem -Recurse -Include *.cpp, *.h | ForEach-Object { clang-format -style=Mozilla --dry-run --Werror $_.FullName }
+    cargo +night fmt --check
 
 alias l := lint
 # Lint code
 lint:
-    cargo clippy
+    cargo clippy --workspace --all-targets --all-features
+[private]
+ci-lint:
+    $env:RUSTFLAGS = "-Dwarnings"; just lint
 
 alias b := build
 # Build (debug)
 build:
-    cargo build
+    cargo build --workspace --all-features
 alias br := build-release
 # Build (release)
 build-release:
-    cargo build --release
+    cargo build --workspace --all-features --release
+[private]
+ci-build:
+    $env:RUSTFLAGS = "-Dwarnings"; just build-release
 
 alias t := test
 # Run tests
 test:
-    cargo test
+    $env:EUROSCOPE_PLUGIN_DELAYLOAD = "1"; cargo test --workspace --all-features
+[private]
+ci-test:
+    $env:RUSTFLAGS = "-Dwarnings"; just test
 
 docs:
     cargo doc
