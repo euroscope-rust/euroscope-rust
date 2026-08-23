@@ -2,7 +2,7 @@
 
 #ifndef DllSpecEuroScope
 #define DllSpecEuroScope __declspec(dllimport)
-#define ESINDEX void *
+#define ESINDEX void*
 #endif
 
 // external undefined classes
@@ -272,7 +272,8 @@ const int RADAR_POSITION_ALL = 7;
 // forward declaration
 class DllSpecEuroScope CSectorElement;
 
-class DllSpecEuroScope CPosition {
+class DllSpecEuroScope CPosition
+{
 public:
   double m_Latitude;
   double m_Longitude;
@@ -283,7 +284,7 @@ public:
 
   //---LoadFromStrings-----------------------------------------------
 
-  bool LoadFromStrings(const char *sLongitude, const char *sLatitude);
+  bool LoadFromStrings(const char* sLongitude, const char* sLatitude);
   //-----------------------------------------------------------------
   //  Parameters :
   //      =>  sLongitude  - longitude value
@@ -321,7 +322,8 @@ public:
   //-----------------------------------------------------------------
 };
 
-class DllSpecEuroScope CFlightPlanExtractedRoute {
+class DllSpecEuroScope CFlightPlanExtractedRoute
+{
 private:
   ESINDEX m_FpPosition; // the currently referenced AC position
 
@@ -364,7 +366,7 @@ public:
 
   //---GetPointName--------------------------------------------------
 
-  const char *GetPointName(int Index) const;
+  const char* GetPointName(int Index) const;
   //-----------------------------------------------------------------
   //  Parameters :
   //      =>  Index   - the index of the requested point. It must be
@@ -388,7 +390,7 @@ public:
 
   //---GetPointAirwayName--------------------------------------------
 
-  const char *GetPointAirwayName(int Index) const;
+  const char* GetPointAirwayName(int Index) const;
   //-----------------------------------------------------------------
   //  Parameters :
   //      =>  Index   - the index of the requested point. It must be
@@ -442,7 +444,8 @@ public:
   //-----------------------------------------------------------------
 };
 
-class DllSpecEuroScope CFlightPlanPositionPredictions {
+class DllSpecEuroScope CFlightPlanPositionPredictions
+{
 private:
   ESINDEX m_FpPosition; // the currently referenced AC position
 
@@ -491,7 +494,7 @@ public:
 
   //---GetControllerId-----------------------------------------------
 
-  const char *GetControllerId(int Index) const;
+  const char* GetControllerId(int Index) const;
   //-----------------------------------------------------------------
   //  Parameters :
   //      =>  Index   - the index of the requested point. It must be
@@ -504,7 +507,8 @@ public:
   //-----------------------------------------------------------------
 };
 
-class DllSpecEuroScope CRadarTargetPositionData {
+class DllSpecEuroScope CRadarTargetPositionData
+{
 private:
   ESINDEX m_RtPosition; // the currently referenced RT position
   ESINDEX m_PosPosition;
@@ -515,7 +519,8 @@ private:
 public:
   //---CRadarTargetPositionData-----------------------------------------
 
-  inline CRadarTargetPositionData(void) {
+  inline CRadarTargetPositionData(void)
+  {
     m_RtPosition = m_PosPosition = NULL;
   };
 
@@ -558,7 +563,7 @@ public:
 
   //---GetSquawk-----------------------------------------------------
 
-  const char *GetSquawk(void) const;
+  const char* GetSquawk(void) const;
   //-----------------------------------------------------------------
   //  Return :
   //      The squawk sent by the pilot
@@ -649,7 +654,8 @@ public:
   //-----------------------------------------------------------------
 };
 
-class DllSpecEuroScope CFlightPlanData {
+class DllSpecEuroScope CFlightPlanData
+{
 private:
   ESINDEX m_FpPosition; // the currently referenced AC position
 
@@ -692,7 +698,7 @@ public:
 
   //---GetPlanType---------------------------------------------------
 
-  const char *GetPlanType(void) const;
+  const char* GetPlanType(void) const;
   //-----------------------------------------------------------------
   //  Return :
   //      The type of the flight plan: V or I.
@@ -700,7 +706,7 @@ public:
 
   //---SetPlanType---------------------------------------------------
 
-  bool SetPlanType(const char *sPlanType);
+  bool SetPlanType(const char* sPlanType);
   //-----------------------------------------------------------------
   //	Parameters :
   //		=>	sPlanType	- the type of the FP: V or I.
@@ -715,7 +721,7 @@ public:
 
   //---GetAircraftInfo-----------------------------------------------
 
-  const char *GetAircraftInfo(void) const;
+  const char* GetAircraftInfo(void) const;
   //-----------------------------------------------------------------
   //  Return :
   //      The unextracted aircraft information.
@@ -723,7 +729,7 @@ public:
 
   //---SetAircraftInfo-----------------------------------------------
 
-  bool SetAircraftInfo(const char *sInfo);
+  bool SetAircraftInfo(const char* sInfo);
   //-----------------------------------------------------------------
   //  Parameters :
   //      =>  sInfo   - the complete aircraft information
@@ -827,7 +833,7 @@ public:
 
   //---GetManufacturerType-------------------------------------------
 
-  const char *GetManufacturerType(void) const;
+  const char* GetManufacturerType(void) const;
   //-----------------------------------------------------------------
   //  Return :
   //      The type description of the aircraft by the manufacturer.
@@ -835,7 +841,7 @@ public:
 
   //---GetAircraftFPType---------------------------------------------
 
-  const char *GetAircraftFPType(void) const;
+  const char* GetAircraftFPType(void) const;
   //-----------------------------------------------------------------
   //  Return :
   //      The unencoded AC type as written to the FP.
@@ -866,7 +872,7 @@ public:
 
   //---GetOrigin-----------------------------------------------------
 
-  const char *GetOrigin(void) const;
+  const char* GetOrigin(void) const;
   //-----------------------------------------------------------------
   //  Return :
   //      The origin airport.
@@ -874,7 +880,7 @@ public:
 
   //---SetOrigin-----------------------------------------------------
 
-  bool SetOrigin(const char *sOrigin);
+  bool SetOrigin(const char* sOrigin);
   //-----------------------------------------------------------------
   //  Parameters :
   //      =>  sOrigin - the origina airport
@@ -912,7 +918,7 @@ public:
 
   //---GetDestination------------------------------------------------
 
-  const char *GetDestination(void) const;
+  const char* GetDestination(void) const;
   //-----------------------------------------------------------------
   //  Return :
   //      The destination airport.
@@ -920,7 +926,7 @@ public:
 
   //---SetDestination------------------------------------------------
 
-  bool SetDestination(const char *sDestination);
+  bool SetDestination(const char* sDestination);
   //-----------------------------------------------------------------
   //  Parameters :
   //      =>  sDestination    - the destination airport
@@ -935,7 +941,7 @@ public:
 
   //---GetAlternate--------------------------------------------------
 
-  const char *GetAlternate(void) const;
+  const char* GetAlternate(void) const;
   //-----------------------------------------------------------------
   //  Return :
   //      The alternate airport.
@@ -943,7 +949,7 @@ public:
 
   //---SetAlternate--------------------------------------------------
 
-  bool SetAlternate(const char *sAlternate);
+  bool SetAlternate(const char* sAlternate);
   //-----------------------------------------------------------------
   //  Parameters :
   //      sAlternate  - the alternate airport
@@ -958,7 +964,7 @@ public:
 
   //---GetRemarks----------------------------------------------------
 
-  const char *GetRemarks(void) const;
+  const char* GetRemarks(void) const;
   //-----------------------------------------------------------------
   //  Return :
   //      The remarks field.
@@ -966,7 +972,7 @@ public:
 
   //---SetRemarks----------------------------------------------------
 
-  bool SetRemarks(const char *sRemarks);
+  bool SetRemarks(const char* sRemarks);
   //-----------------------------------------------------------------
   //  Parameters :
   //      =>  sRemarks    - the remarks field
@@ -994,7 +1000,7 @@ public:
 
   //---GetRoute------------------------------------------------------
 
-  const char *GetRoute(void) const;
+  const char* GetRoute(void) const;
   //-----------------------------------------------------------------
   //  Return :
   //      The route field.
@@ -1002,7 +1008,7 @@ public:
 
   //---SetRoute------------------------------------------------------
 
-  bool SetRoute(const char *sRoute);
+  bool SetRoute(const char* sRoute);
   //-----------------------------------------------------------------
   //  Parameters :
   //      =>  sRoute  - the route field
@@ -1017,7 +1023,7 @@ public:
 
   //---GetSidName----------------------------------------------------
 
-  const char *GetSidName(void) const;
+  const char* GetSidName(void) const;
   //-----------------------------------------------------------------
   //  Return :
   //      The extracted or assigned SID name.
@@ -1025,7 +1031,7 @@ public:
 
   //---GetStarName---------------------------------------------------
 
-  const char *GetStarName(void) const;
+  const char* GetStarName(void) const;
   //-----------------------------------------------------------------
   //  Return :
   //      The extracted or assigned STAR name.
@@ -1033,7 +1039,7 @@ public:
 
   //---GetDepartureRwy-----------------------------------------------
 
-  const char *GetDepartureRwy(void) const;
+  const char* GetDepartureRwy(void) const;
   //-----------------------------------------------------------------
   //  Return :
   //      The extracted or assigned departure RWY name.
@@ -1041,7 +1047,7 @@ public:
 
   //---GetArrivalRwy-------------------------------------------------
 
-  const char *GetArrivalRwy(void) const;
+  const char* GetArrivalRwy(void) const;
   //-----------------------------------------------------------------
   //  Return :
   //      The extracted or assigned arrival RWY name.
@@ -1049,7 +1055,7 @@ public:
 
   //---GetEstimatedDepartureTime-------------------------------------
 
-  const char *GetEstimatedDepartureTime(void) const;
+  const char* GetEstimatedDepartureTime(void) const;
   //-----------------------------------------------------------------
   //  Return :
   //      The pilot sent estimated departure time (uncompiled original
@@ -1058,7 +1064,7 @@ public:
 
   //---SetEstimatedDepartureTime-------------------------------------
 
-  bool SetEstimatedDepartureTime(const char *sDepTime);
+  bool SetEstimatedDepartureTime(const char* sDepTime);
   //-----------------------------------------------------------------
   //  Parameters :
   //      =>  sDepTime    - The estimated departure time (uncompiled
@@ -1074,7 +1080,7 @@ public:
 
   //---GetActualDepartureTime----------------------------------------
 
-  const char *GetActualDepartureTime(void) const;
+  const char* GetActualDepartureTime(void) const;
   //-----------------------------------------------------------------
   //  Return :
   //      The pilot sent actual departure time (uncompiled original
@@ -1083,7 +1089,7 @@ public:
 
   //---SetActualDepartureTime----------------------------------------
 
-  bool SetActualDepartureTime(const char *sDepTime);
+  bool SetActualDepartureTime(const char* sDepTime);
   //-----------------------------------------------------------------
   //  Parameters :
   //      =>  sDepTime    - The actual departure time (uncompiled
@@ -1099,7 +1105,7 @@ public:
 
   //---GetEnrouteHours-----------------------------------------------
 
-  const char *GetEnrouteHours(void) const;
+  const char* GetEnrouteHours(void) const;
   //-----------------------------------------------------------------
   //  Return :
   //      The pilot sent hours for enroute (uncompiled original
@@ -1108,7 +1114,7 @@ public:
 
   //---SetEnrouteHours-----------------------------------------------
 
-  bool SetEnrouteHours(const char *sEnrouteHours);
+  bool SetEnrouteHours(const char* sEnrouteHours);
   //-----------------------------------------------------------------
   //  Parameters :
   //      =>  sEnrouteHours   - The hours for enroute (uncompiled
@@ -1124,7 +1130,7 @@ public:
 
   //---GetEnrouteMinutes---------------------------------------------
 
-  const char *GetEnrouteMinutes(void) const;
+  const char* GetEnrouteMinutes(void) const;
   //-----------------------------------------------------------------
   //  Return :
   //      The pilot sent minutes for enroute (uncompiled original
@@ -1133,7 +1139,7 @@ public:
 
   //---SetEnrouteMinutes---------------------------------------------
 
-  bool SetEnrouteMinutes(const char *sEnrouteMinutes);
+  bool SetEnrouteMinutes(const char* sEnrouteMinutes);
   //-----------------------------------------------------------------
   //  Parameters :
   //      =>  sEnrouteMinutes   - The minutes for enroute (uncompiled
@@ -1149,7 +1155,7 @@ public:
 
   //---GetFuelHours--------------------------------------------------
 
-  const char *GetFuelHours(void) const;
+  const char* GetFuelHours(void) const;
   //-----------------------------------------------------------------
   //  Return :
   //      The pilot sent hours available fuel (uncompiled original
@@ -1158,7 +1164,7 @@ public:
 
   //---SetFuelHours--------------------------------------------------
 
-  bool SetFuelHours(const char *sFuelHours);
+  bool SetFuelHours(const char* sFuelHours);
   //-----------------------------------------------------------------
   //  Parameters :
   //      =>  sFuelHours  - The hours of available fuel (uncompiled
@@ -1174,7 +1180,7 @@ public:
 
   //---GetFuelMinutes------------------------------------------------
 
-  const char *GetFuelMinutes(void) const;
+  const char* GetFuelMinutes(void) const;
   //-----------------------------------------------------------------
   //  Return :
   //      The pilot sent minutes available fuel (uncompiled original
@@ -1183,7 +1189,7 @@ public:
 
   //---SetFuelMinutes------------------------------------------------
 
-  bool SetFuelMinutes(const char *sFuelMinutes);
+  bool SetFuelMinutes(const char* sFuelMinutes);
   //-----------------------------------------------------------------
   //  Parameters :
   //      =>  sFuelMinutes    - The minutes of available fuel (uncompiled
@@ -1249,7 +1255,8 @@ public:
   //-----------------------------------------------------------------
 };
 
-class DllSpecEuroScope CFlightPlanControllerAssignedData {
+class DllSpecEuroScope CFlightPlanControllerAssignedData
+{
 private:
   ESINDEX m_FpPosition; // the currently referenced AC position
 
@@ -1262,7 +1269,7 @@ public:
 
   //---GetSquawk-----------------------------------------------------
 
-  const char *GetSquawk(void) const;
+  const char* GetSquawk(void) const;
   //-----------------------------------------------------------------
   //  Return :
   //      The assigned squawk (may be empty).
@@ -1270,7 +1277,7 @@ public:
 
   //---SetSquawk-----------------------------------------------------
 
-  bool SetSquawk(const char *sSquawk);
+  bool SetSquawk(const char* sSquawk);
   //-----------------------------------------------------------------
   //  Parameters :
   //      =>  sSquawk - the newly assigned squawk
@@ -1352,7 +1359,7 @@ public:
 
   //---GetScratchPadString-------------------------------------------
 
-  const char *GetScratchPadString(void) const;
+  const char* GetScratchPadString(void) const;
   //-----------------------------------------------------------------
   //  Return :
   //      The scratch pad string value. Only the real valus, directs,
@@ -1361,7 +1368,7 @@ public:
 
   //---SetScratchPadString-------------------------------------------
 
-  bool SetScratchPadString(const char *sString);
+  bool SetScratchPadString(const char* sString);
   //-----------------------------------------------------------------
   //  Parameters :
   //      =>  sString - the new scratch string value
@@ -1457,7 +1464,7 @@ public:
 
   //---GetDirectToPointName------------------------------------------
 
-  const char *GetDirectToPointName(void) const;
+  const char* GetDirectToPointName(void) const;
   //-----------------------------------------------------------------
   //  Return :
   //      The assigned direct to point name.
@@ -1465,7 +1472,7 @@ public:
 
   //---SetDirectToPointName------------------------------------------
 
-  bool SetDirectToPointName(const char *sPointName);
+  bool SetDirectToPointName(const char* sPointName);
   //-----------------------------------------------------------------
   //  Parameters :
   //      =>  sPointName  - the name of the point
@@ -1477,7 +1484,7 @@ public:
 
   //---GetFlightStripAnnotation--------------------------------------
 
-  const char *GetFlightStripAnnotation(int Index) const;
+  const char* GetFlightStripAnnotation(int Index) const;
   //-----------------------------------------------------------------
   //  Parameters :
   //      =>  Index   - the index of the annotation (0-8).
@@ -1488,7 +1495,7 @@ public:
 
   //---SetFlightStripAnnotation--------------------------------------
 
-  bool SetFlightStripAnnotation(int Index, const char *sAnnotation);
+  bool SetFlightStripAnnotation(int Index, const char* sAnnotation);
   //-----------------------------------------------------------------
   //  Parameters :
   //      =>  Index       - the index of the annotation (0-8).
@@ -1500,7 +1507,8 @@ public:
   //-----------------------------------------------------------------
 };
 
-class DllSpecEuroScope CFlightPlan {
+class DllSpecEuroScope CFlightPlan
+{
 private:
   ESINDEX m_FpPosition; // the currently referenced AC position
 
@@ -1528,7 +1536,7 @@ public:
 
   //---GetCallsign---------------------------------------------------
 
-  const char *GetCallsign(void) const;
+  const char* GetCallsign(void) const;
   //-----------------------------------------------------------------
   //  Return :
   //      The callsign of the AC.
@@ -1536,7 +1544,7 @@ public:
 
   //---GetPilotName--------------------------------------------------
 
-  const char *GetPilotName(void) const;
+  const char* GetPilotName(void) const;
   //-----------------------------------------------------------------
   //  Return :
   //      The name of the pilot extracted from statistics data.
@@ -1574,7 +1582,7 @@ public:
 
   //---GetTrackingControllerCallsign---------------------------------
 
-  const char *GetTrackingControllerCallsign(void) const;
+  const char* GetTrackingControllerCallsign(void) const;
   //-----------------------------------------------------------------
   //  Return :
   //      The callsign of the controller currently tracking.
@@ -1583,7 +1591,7 @@ public:
 
   //---GetTrackingControllerId---------------------------------------
 
-  const char *GetTrackingControllerId(void) const;
+  const char* GetTrackingControllerId(void) const;
   //-----------------------------------------------------------------
   //  Return :
   //      The position ID of the controller currently tracking.
@@ -1601,7 +1609,7 @@ public:
 
   //---GetHandoffTargetControllerCallsign----------------------------
 
-  const char *GetHandoffTargetControllerCallsign(void) const;
+  const char* GetHandoffTargetControllerCallsign(void) const;
   //-----------------------------------------------------------------
   //  Return :
   //      The callsign of the controller who is the target of the
@@ -1611,7 +1619,7 @@ public:
 
   //---GetHandoffTargetControllerId----------------------------------
 
-  const char *GetHandoffTargetControllerId(void) const;
+  const char* GetHandoffTargetControllerId(void) const;
   //-----------------------------------------------------------------
   //  Return :
   //      The position ID of the controller who is the target of the
@@ -1637,7 +1645,7 @@ public:
 
   //---GetNextCopxPointName------------------------------------------
 
-  const char *GetNextCopxPointName(void) const;
+  const char* GetNextCopxPointName(void) const;
   //-----------------------------------------------------------------
   //  Return :
   //      The next active COPX point name along the extracted route.
@@ -1646,7 +1654,7 @@ public:
 
   //---GetNextFirCopxPointName---------------------------------------
 
-  const char *GetNextFirCopxPointName(void) const;
+  const char* GetNextFirCopxPointName(void) const;
   //-----------------------------------------------------------------
   //  Return :
   //      The next active FIR COPX point name along the extracted route.
@@ -1690,7 +1698,7 @@ public:
 
   //---GetGroundState------------------------------------------------
 
-  const char *GetGroundState(void) const;
+  const char* GetGroundState(void) const;
   //-----------------------------------------------------------------
   //  Return :
   //      The ground state of the AC (STUP, PUSH, TAXI, DEPA, ARR, TAXIIN, PARK
@@ -1743,7 +1751,7 @@ public:
 
   //---GetEntryCoordinationPointName---------------------------------
 
-  const char *GetEntryCoordinationPointName(void) const;
+  const char* GetEntryCoordinationPointName(void) const;
   //-----------------------------------------------------------------
   //  Return :
   //      The cordination point name for entry point.
@@ -1777,7 +1785,7 @@ public:
 
   //---GetExitCoordinationPointName----------------------------------
 
-  const char *GetExitCoordinationPointName(void) const;
+  const char* GetExitCoordinationPointName(void) const;
   //-----------------------------------------------------------------
   //  Return :
   //      The cordination point name for exit point.
@@ -1802,7 +1810,7 @@ public:
 
   //---GetCoordinatedNextController----------------------------------
 
-  const char *GetCoordinatedNextController(void) const;
+  const char* GetCoordinatedNextController(void) const;
   //-----------------------------------------------------------------
   //  Return :
   //      - the callsign of the next controller if there is a
@@ -1882,7 +1890,7 @@ public:
 
   //---InitiateHandoff-----------------------------------------------
 
-  bool InitiateHandoff(const char *sTargetController);
+  bool InitiateHandoff(const char* sTargetController);
   //-----------------------------------------------------------------
   //  Parameters :
   //      =>  sTargetController   - the controller to initiate the
@@ -1914,8 +1922,9 @@ public:
 
   //---InitiateCoordination------------------------------------------
 
-  bool InitiateCoordination(const char *sTargetController,
-                            const char *sPointName, int Altitude);
+  bool InitiateCoordination(const char* sTargetController,
+                            const char* sPointName,
+                            int Altitude);
   //-----------------------------------------------------------------
   //  Parameters :
   //      =>  sTargetController   - the controller to initiate the
@@ -1951,7 +1960,7 @@ public:
 
   //---PushFlightStrip-----------------------------------------------
 
-  void PushFlightStrip(const char *sTargetController);
+  void PushFlightStrip(const char* sTargetController);
   //-----------------------------------------------------------------
   //  Parameters :
   //      =>  sTargetController   - the controller to send the flight
@@ -1960,7 +1969,7 @@ public:
 
   //---SetEstimation-------------------------------------------------
 
-  void SetEstimation(const char *sPointName, const char *sTime);
+  void SetEstimation(const char* sPointName, const char* sTime);
   //-----------------------------------------------------------------
   //  Parameters :
   //      =>  sPointName  - the name along the route
@@ -1971,7 +1980,7 @@ public:
   //---ClearEstimation-----------------------------------------------
 
   void ClearEstimation(void);
-  void ClearEstimation(const char *sPointName);
+  void ClearEstimation(const char* sPointName);
   //-----------------------------------------------------------------
   //  Parameters :
   //      =>  sPointName  - the name along the route
@@ -2055,7 +2064,8 @@ public:
   //-----------------------------------------------------------------
 };
 
-class DllSpecEuroScope CRadarTarget {
+class DllSpecEuroScope CRadarTarget
+{
 private:
   ESINDEX m_RtPosition; // the currently referenced AC position
 
@@ -2082,7 +2092,7 @@ public:
 
   //---GetCallsign---------------------------------------------------
 
-  const char *GetCallsign(void) const;
+  const char* GetCallsign(void) const;
   //-----------------------------------------------------------------
   //  Return :
   //      The callsign of the AC.
@@ -2090,7 +2100,7 @@ public:
 
   //---GetSystemID---------------------------------------------------
 
-  const char *GetSystemID(void) const;
+  const char* GetSystemID(void) const;
   //-----------------------------------------------------------------
   //  Return :
   //      The system assigned ID to the radar target. It is surely the
@@ -2180,8 +2190,8 @@ public:
 
   //---GetPreviousPosition-------------------------------------------
 
-  CRadarTargetPositionData
-  GetPreviousPosition(const CRadarTargetPositionData CurrentPosition) const;
+  CRadarTargetPositionData GetPreviousPosition(
+    const CRadarTargetPositionData CurrentPosition) const;
   //-----------------------------------------------------------------
   //  Parameters :
   //      =>  CurrentPosition - the current position object
@@ -2197,7 +2207,8 @@ public:
   //-----------------------------------------------------------------
 };
 
-class DllSpecEuroScope CController {
+class DllSpecEuroScope CController
+{
 private:
   ESINDEX m_CtrPosition; // the currently referenced AC position
   bool m_Myself;         // indicates myself is selected
@@ -2208,7 +2219,8 @@ private:
 public:
   //---CController---------------------------------------------------
 
-  inline CController(void) {
+  inline CController(void)
+  {
     m_CtrPosition = NULL;
     m_Myself = false;
   };
@@ -2227,7 +2239,7 @@ public:
 
   //---GetCallsign---------------------------------------------------
 
-  const char *GetCallsign(void) const;
+  const char* GetCallsign(void) const;
   //-----------------------------------------------------------------
   //  Return :
   //      The callsign of the controller.
@@ -2235,7 +2247,7 @@ public:
 
   //---GetPositionId-------------------------------------------------
 
-  const char *GetPositionId(void) const;
+  const char* GetPositionId(void) const;
   //-----------------------------------------------------------------
   //  Return :
   //      The position ID of the selected controller.
@@ -2261,7 +2273,7 @@ public:
 
   //---GetFullName---------------------------------------------------
 
-  const char *GetFullName(void) const;
+  const char* GetFullName(void) const;
   //-----------------------------------------------------------------
   //  Return :
   //      The position ID of the selected controller.
@@ -2303,7 +2315,7 @@ public:
 
   //---GetSectorFileName---------------------------------------------
 
-  const char *GetSectorFileName(void) const;
+  const char* GetSectorFileName(void) const;
   //-----------------------------------------------------------------
   //  Return :
   //      The name of the sectorfile used by the controller.
@@ -2354,10 +2366,11 @@ public:
   //-----------------------------------------------------------------
 };
 
-class DllSpecEuroScope CRadarScreen {
+class DllSpecEuroScope CRadarScreen
+{
 private:
-  CRadarView *m_pRadarView; // pointer to the structure behind
-  CPlugIn *m_pPlugIn;
+  CRadarView* m_pRadarView; // pointer to the structure behind
+  CPlugIn* m_pPlugIn;
   // pointer back to the plugin for easy access
 
   friend CPlugInData;
@@ -2373,11 +2386,11 @@ public:
 
   //---GetPlugIn-----------------------------------------------------
 
-  inline CPlugIn *GetPlugIn(void) { return m_pPlugIn; };
+  inline CPlugIn* GetPlugIn(void) { return m_pPlugIn; };
 
   //---GetRadarView--------------------------------------------------
 
-  inline CRadarView *GetRadarView(void) { return m_pRadarView; };
+  inline CRadarView* GetRadarView(void) { return m_pRadarView; };
 
   //---GetToolbarArea------------------------------------------------
 
@@ -2428,8 +2441,9 @@ public:
 
   //---SaveDataToAsr-------------------------------------------------
 
-  void SaveDataToAsr(const char *sVariableName,
-                     const char *sVariableDescription, const char *sValue);
+  void SaveDataToAsr(const char* sVariableName,
+                     const char* sVariableDescription,
+                     const char* sValue);
   //-----------------------------------------------------------------
   //  Parameters :
   //      =>  sVariableName       - the name under your value will be saved
@@ -2448,7 +2462,7 @@ public:
 
   //---GetDataFromAsr------------------------------------------------
 
-  const char *GetDataFromAsr(const char *sVariableName);
+  const char* GetDataFromAsr(const char* sVariableName);
   //-----------------------------------------------------------------
   //  Parameters :
   //      =>  sVariableName       - the name under your value was saved
@@ -2463,8 +2477,11 @@ public:
 
   //---AddScreenObject-----------------------------------------------
 
-  void AddScreenObject(int ObjectType, const char *sObjectId, RECT Area,
-                       bool Moveable, const char *sMessage);
+  void AddScreenObject(int ObjectType,
+                       const char* sObjectId,
+                       RECT Area,
+                       bool Moveable,
+                       const char* sMessage);
   //-----------------------------------------------------------------
   //  Parameters :
   //      =>  ObjectType  - the type of the object (depends on the plugin)
@@ -2498,7 +2515,8 @@ public:
 
   //---ShowSectorFileElement-----------------------------------------
 
-  void ShowSectorFileElement(CSectorElement Element, const char *sComponentName,
+  void ShowSectorFileElement(CSectorElement Element,
+                             const char* sComponentName,
                              bool Show);
   //-----------------------------------------------------------------
   //  Parameters :
@@ -2528,10 +2546,14 @@ public:
 
   //---StartTagFunction----------------------------------------------
 
-  void StartTagFunction(const char *sCallsign, const char *sItemPlugInName,
-                        int ItemCode, const char *sItemString,
-                        const char *sFunctionPlugInName, int FunctionId,
-                        POINT Pt, RECT Area);
+  void StartTagFunction(const char* sCallsign,
+                        const char* sItemPlugInName,
+                        int ItemCode,
+                        const char* sItemString,
+                        const char* sFunctionPlugInName,
+                        int FunctionId,
+                        POINT Pt,
+                        RECT Area);
   //------------------------------------------------------------------
   //  Parameters :
   //      =>  sCallsign           - the AC which TAG is clicked
@@ -2556,7 +2578,7 @@ public:
 
   //---GetDisplayArea------------------------------------------------
 
-  void GetDisplayArea(CPosition *pLeftDown, CPosition *pRightUp);
+  void GetDisplayArea(CPosition* pLeftDown, CPosition* pRightUp);
   //-----------------------------------------------------------------
   //  Parameters :
   //      <=  pLeftDown   - the left down corner of the screen
@@ -2715,9 +2737,9 @@ public:
 
   //---OnFlightPlanControllerAssignedDataUpdate----------------------
 
-  inline virtual void
-  OnFlightPlanControllerAssignedDataUpdate(CFlightPlan FlightPlan,
-                                           int DataType) {};
+  inline virtual void OnFlightPlanControllerAssignedDataUpdate(
+    CFlightPlan FlightPlan,
+    int DataType) {};
   //-----------------------------------------------------------------
   //  Parameters :
   //      =>  FlightPlan  - the flight plan reference whose controller
@@ -2731,10 +2753,10 @@ public:
 
   //---OnFlightPlanFlightStripPushed---------------------------------
 
-  inline virtual void
-  OnFlightPlanFlightStripPushed(CFlightPlan FlightPlan,
-                                const char *sSenderController,
-                                const char *sTargetController) {};
+  inline virtual void OnFlightPlanFlightStripPushed(
+    CFlightPlan FlightPlan,
+    const char* sSenderController,
+    const char* sTargetController) {};
   //------------------------------------------------------------------
   //  Parameters :
   //      =>  FlightPlan          - the flight plan reference whose flight
@@ -2751,7 +2773,8 @@ public:
 
   //---OnCompileCommand-----------------------------------------------
 
-  inline virtual bool OnCompileCommand(const char *sCommandLine) {
+  inline virtual bool OnCompileCommand(const char* sCommandLine)
+  {
     return false;
   };
   //------------------------------------------------------------------
@@ -2772,8 +2795,10 @@ public:
 
   //---OnOverScreenObject---------------------------------------------
 
-  inline virtual void OnOverScreenObject(int ObjectType, const char *sObjectId,
-                                         POINT Pt, RECT Area) {};
+  inline virtual void OnOverScreenObject(int ObjectType,
+                                         const char* sObjectId,
+                                         POINT Pt,
+                                         RECT Area) {};
   //------------------------------------------------------------------
   //  Parameters :
   //      =>  ObjectType  - the type of the screen object
@@ -2790,8 +2815,10 @@ public:
   //---OnButtonDownScreenObject---------------------------------------
 
   inline virtual void OnButtonDownScreenObject(int ObjectType,
-                                               const char *sObjectId, POINT Pt,
-                                               RECT Area, int Button) {};
+                                               const char* sObjectId,
+                                               POINT Pt,
+                                               RECT Area,
+                                               int Button) {};
   //------------------------------------------------------------------
   //  Parameters :
   //      =>  ObjectType  - the type of the screen object
@@ -2809,8 +2836,10 @@ public:
   //---OnButtonUpScreenObject-----------------------------------------
 
   inline virtual void OnButtonUpScreenObject(int ObjectType,
-                                             const char *sObjectId, POINT Pt,
-                                             RECT Area, int Button) {};
+                                             const char* sObjectId,
+                                             POINT Pt,
+                                             RECT Area,
+                                             int Button) {};
   //------------------------------------------------------------------
   //  Parameters :
   //      =>  ObjectType  - the type of the screen object
@@ -2827,8 +2856,11 @@ public:
 
   //---OnClickScreenObject--------------------------------------------
 
-  inline virtual void OnClickScreenObject(int ObjectType, const char *sObjectId,
-                                          POINT Pt, RECT Area, int Button) {};
+  inline virtual void OnClickScreenObject(int ObjectType,
+                                          const char* sObjectId,
+                                          POINT Pt,
+                                          RECT Area,
+                                          int Button) {};
   //------------------------------------------------------------------
   //  Parameters :
   //      =>  ObjectType  - the type of the screen object
@@ -2846,8 +2878,10 @@ public:
   //---OnDoubleClickScreenObject--------------------------------------
 
   inline virtual void OnDoubleClickScreenObject(int ObjectType,
-                                                const char *sObjectId, POINT Pt,
-                                                RECT Area, int Button) {};
+                                                const char* sObjectId,
+                                                POINT Pt,
+                                                RECT Area,
+                                                int Button) {};
   //------------------------------------------------------------------
   //  Parameters :
   //      =>  ObjectType  - the type of the screen object
@@ -2864,8 +2898,11 @@ public:
 
   //---OnMoveScreenObject---------------------------------------------
 
-  inline virtual void OnMoveScreenObject(int ObjectType, const char *sObjectId,
-                                         POINT Pt, RECT Area, bool Released) {};
+  inline virtual void OnMoveScreenObject(int ObjectType,
+                                         const char* sObjectId,
+                                         POINT Pt,
+                                         RECT Area,
+                                         bool Released) {};
   //------------------------------------------------------------------
   //  Parameters :
   //      =>  ObjectType  - the type of the screen object
@@ -2886,8 +2923,10 @@ public:
 
   //---OnFunctionCall-------------------------------------------------
 
-  inline virtual void OnFunctionCall(int FunctionId, const char *sItemString,
-                                     POINT Pt, RECT Area) {};
+  inline virtual void OnFunctionCall(int FunctionId,
+                                     const char* sItemString,
+                                     POINT Pt,
+                                     RECT Area) {};
   //------------------------------------------------------------------
   //  Parameters :
   //      =>  FunctionId  - the ID of the function that is selected
@@ -2906,7 +2945,8 @@ public:
   //------------------------------------------------------------------
 };
 
-class DllSpecEuroScope CFlightPlanList {
+class DllSpecEuroScope CFlightPlanList
+{
 private:
   ESINDEX m_Position; // the currently referenced AC list position
 
@@ -2942,11 +2982,14 @@ public:
 
   //---AddColumnDefinition-------------------------------------------
 
-  void AddColumnDefinition(const char *sColumnTitle, int Width, bool Centered,
-                           const char *sItemProvifer, int ItemCode,
-                           const char *sLeftButtonFunctionProvifer,
+  void AddColumnDefinition(const char* sColumnTitle,
+                           int Width,
+                           bool Centered,
+                           const char* sItemProvifer,
+                           int ItemCode,
+                           const char* sLeftButtonFunctionProvifer,
                            int LeftButtonFunction,
-                           const char *sRightButtonFunctionProvifer,
+                           const char* sRightButtonFunctionProvifer,
                            int RightButtonFunction);
   //-----------------------------------------------------------------
   //  Parameters :
@@ -3010,7 +3053,8 @@ public:
   //-----------------------------------------------------------------
 };
 
-class DllSpecEuroScope CSectorElement {
+class DllSpecEuroScope CSectorElement
+{
 private:
   int m_Position;    // the currently referenced element position
   int m_ElementType; // the type of the element
@@ -3022,7 +3066,8 @@ private:
 public:
   //---CSectorElement------------------------------------------------
 
-  inline CSectorElement(void) {
+  inline CSectorElement(void)
+  {
     m_Position = -1;
     m_ElementType = 0;
   };
@@ -3045,7 +3090,7 @@ public:
 
   //---GetName-------------------------------------------------------
 
-  const char *GetName(void) const;
+  const char* GetName(void) const;
   //-----------------------------------------------------------------
   //  Return :
   //      the name of the element
@@ -3053,7 +3098,7 @@ public:
 
   //---GetPosition---------------------------------------------------
 
-  bool GetPosition(CPosition *pPosition, int Index);
+  bool GetPosition(CPosition* pPosition, int Index);
   //-----------------------------------------------------------------
   //  Parameters :
   //      <=  pPosition   - the position of the element
@@ -3072,7 +3117,7 @@ public:
 
   //---GetComponentName----------------------------------------------
 
-  const char *GetComponentName(int Index);
+  const char* GetComponentName(int Index);
   //-----------------------------------------------------------------
   //  Parameters :
   //      =>  Index       - the index of the required component (star
@@ -3098,7 +3143,7 @@ public:
 
   //---GetRunwayName-------------------------------------------------
 
-  const char *GetRunwayName(int Index) const;
+  const char* GetRunwayName(int Index) const;
   //-----------------------------------------------------------------
   //  Parameters :
   //      =>  Index       - 0 or 1
@@ -3130,7 +3175,7 @@ public:
 
   //---GetAirportName------------------------------------------------
 
-  const char *GetAirportName(void) const;
+  const char* GetAirportName(void) const;
   //-----------------------------------------------------------------
   //  Return :
   //      the name of the airport this element belongs to
@@ -3162,7 +3207,8 @@ public:
   //-----------------------------------------------------------------
 };
 
-class DllSpecEuroScope CGrountToAirChannel {
+class DllSpecEuroScope CGrountToAirChannel
+{
 private:
   int m_Index; // the currently referenced element index
 
@@ -3186,7 +3232,7 @@ public:
 
   //---GetName-------------------------------------------------------
 
-  const char *GetName(void);
+  const char* GetName(void);
   //-----------------------------------------------------------------
   //  Return :
   //      The name of the communication channel.
@@ -3202,7 +3248,7 @@ public:
 
   //---GetVoiceServer------------------------------------------------
 
-  const char *GetVoiceServer(void);
+  const char* GetVoiceServer(void);
   //-----------------------------------------------------------------
   //  Return :
   //      The voice server name of the communication channel.
@@ -3210,7 +3256,7 @@ public:
 
   //---GetVoiceChannel-----------------------------------------------
 
-  const char *GetVoiceChannel(void);
+  const char* GetVoiceChannel(void);
   //-----------------------------------------------------------------
   //  Return :
   //      The voice server channel name of the communication channel.
@@ -3330,17 +3376,20 @@ public:
   //-----------------------------------------------------------------
 };
 
-class DllSpecEuroScope CPlugIn {
+class DllSpecEuroScope CPlugIn
+{
 private:
-  CPlugInData *m_pPluginData;
+  CPlugInData* m_pPluginData;
   // pointer to the internal data structure
 
 public:
   //---CPlugIn-------------------------------------------------------
 
-  CPlugIn(int CompatibilityCode, const char *sPlugInName,
-          const char *sVersionNumber, const char *sAuthorName,
-          const char *sCopyrigthMessage);
+  CPlugIn(int CompatibilityCode,
+          const char* sPlugInName,
+          const char* sVersionNumber,
+          const char* sAuthorName,
+          const char* sCopyrigthMessage);
   //-----------------------------------------------------------------
   //  Parameters :
   //      =>  CompatibilityCode   - for compatiblity check
@@ -3429,9 +3478,9 @@ public:
 
   //---OnPlaneInformationUpdate--------------------------------------
 
-  inline virtual void OnPlaneInformationUpdate(const char *sCallsign,
-                                               const char *sLivery,
-                                               const char *sPlaneType) {};
+  inline virtual void OnPlaneInformationUpdate(const char* sCallsign,
+                                               const char* sLivery,
+                                               const char* sPlaneType) {};
   //-----------------------------------------------------------------
   //  Parameters :
   //      =>  sCallsign   - the callsign of the plane
@@ -3445,9 +3494,9 @@ public:
 
   //---OnFlightPlanControllerAssignedDataUpdate----------------------
 
-  inline virtual void
-  OnFlightPlanControllerAssignedDataUpdate(CFlightPlan FlightPlan,
-                                           int DataType) {};
+  inline virtual void OnFlightPlanControllerAssignedDataUpdate(
+    CFlightPlan FlightPlan,
+    int DataType) {};
   //-----------------------------------------------------------------
   //  Parameters :
   //      =>  FlightPlan  - the flight plan reference whose controller
@@ -3461,10 +3510,10 @@ public:
 
   //---OnFlightPlanFlightStripPushed---------------------------------
 
-  inline virtual void
-  OnFlightPlanFlightStripPushed(CFlightPlan FlightPlan,
-                                const char *sSenderController,
-                                const char *sTargetController) {};
+  inline virtual void OnFlightPlanFlightStripPushed(
+    CFlightPlan FlightPlan,
+    const char* sSenderController,
+    const char* sTargetController) {};
   //------------------------------------------------------------------
   //  Parameters :
   //      =>  FlightPlan          - the FP reference whose flight
@@ -3481,9 +3530,12 @@ public:
 
   //---OnRadarScreenCreated------------------------------------------
 
-  inline virtual CRadarScreen *
-  OnRadarScreenCreated(const char *sDisplayName, bool NeedRadarContent,
-                       bool GeoReferenced, bool CanBeSaved, bool CanBeCreated) {
+  inline virtual CRadarScreen* OnRadarScreenCreated(const char* sDisplayName,
+                                                    bool NeedRadarContent,
+                                                    bool GeoReferenced,
+                                                    bool CanBeSaved,
+                                                    bool CanBeCreated)
+  {
     return NULL;
   };
   //-----------------------------------------------------------------
@@ -3512,7 +3564,8 @@ public:
 
   //---OnCompileCommand-----------------------------------------------
 
-  inline virtual bool OnCompileCommand(const char *sCommandLine) {
+  inline virtual bool OnCompileCommand(const char* sCommandLine)
+  {
     return false;
   };
   //------------------------------------------------------------------
@@ -3532,9 +3585,9 @@ public:
 
   //---OnCompileFrequencyChat-----------------------------------------
 
-  inline virtual void OnCompileFrequencyChat(const char *sSenderCallsign,
+  inline virtual void OnCompileFrequencyChat(const char* sSenderCallsign,
                                              double Frequency,
-                                             const char *sChatMessage) {};
+                                             const char* sChatMessage) {};
   //------------------------------------------------------------------
   //  Parameters :
   //      =>  sSenderCallsign - the sender
@@ -3551,9 +3604,9 @@ public:
 
   //---OnCompilePrivateChat-------------------------------------------
 
-  inline virtual void OnCompilePrivateChat(const char *sSenderCallsign,
-                                           const char *sReceiverCallsign,
-                                           const char *sChatMessage) {};
+  inline virtual void OnCompilePrivateChat(const char* sSenderCallsign,
+                                           const char* sReceiverCallsign,
+                                           const char* sChatMessage) {};
   //------------------------------------------------------------------
   //  Parameters :
   //      =>  sSenderCallsign - the sender
@@ -3572,10 +3625,13 @@ public:
   //---OnGetTagItem---------------------------------------------------
 
   inline virtual void OnGetTagItem(CFlightPlan FlightPlan,
-                                   CRadarTarget RadarTarget, int ItemCode,
-                                   int TagData, char sItemString[16],
-                                   int *pColorCode, COLORREF *pRGB,
-                                   double *pFontSize) {};
+                                   CRadarTarget RadarTarget,
+                                   int ItemCode,
+                                   int TagData,
+                                   char sItemString[16],
+                                   int* pColorCode,
+                                   COLORREF* pRGB,
+                                   double* pFontSize) {};
   //-----------------------------------------------------------------
   //  Parameters :
   //      =>  FlightPlan  - the FP reference whose TAG item is
@@ -3621,8 +3677,8 @@ public:
 
   //---OnNewMetarReceived--------------------------------------------
 
-  inline virtual void OnNewMetarReceived(const char *sStation,
-                                         const char *sFullMetar) {};
+  inline virtual void OnNewMetarReceived(const char* sStation,
+                                         const char* sFullMetar) {};
   //-----------------------------------------------------------------
   //  Parameters :
   //      =>  sStation    - the airport
@@ -3635,8 +3691,10 @@ public:
 
   //---OnFunctionCall-------------------------------------------------
 
-  inline virtual void OnFunctionCall(int FunctionId, const char *sItemString,
-                                     POINT Pt, RECT Area) {};
+  inline virtual void OnFunctionCall(int FunctionId,
+                                     const char* sItemString,
+                                     POINT Pt,
+                                     RECT Area) {};
   //------------------------------------------------------------------
   //  Parameters :
   //      =>  FunctionId  - the ID of the function that is selected
@@ -3678,7 +3736,7 @@ public:
 
   //---GetPlugInName-------------------------------------------------
 
-  const char *GetPlugInName(void);
+  const char* GetPlugInName(void);
   //-----------------------------------------------------------------
   //  Return :
   //      the plugin name.
@@ -3686,8 +3744,10 @@ public:
 
   //---RegisterDisplayType-------------------------------------------
 
-  void RegisterDisplayType(const char *sDisplayName, bool NeedRadarContent,
-                           bool GeoReferenced, bool CanBeSaved,
+  void RegisterDisplayType(const char* sDisplayName,
+                           bool NeedRadarContent,
+                           bool GeoReferenced,
+                           bool CanBeSaved,
                            bool CanBeCreated);
   //-----------------------------------------------------------------
   //  Parameters :
@@ -3711,7 +3771,7 @@ public:
 
   //---RegisterTagItemType-------------------------------------------
 
-  void RegisterTagItemType(const char *sDisplayName, int Code);
+  void RegisterTagItemType(const char* sDisplayName, int Code);
   //-----------------------------------------------------------------
   //  Parameters :
   //      =>  sDisplayName    - the user readable name of the TAG item
@@ -3723,7 +3783,7 @@ public:
 
   //---RegisterTagItemFunction---------------------------------------
 
-  void RegisterTagItemFunction(const char *sDisplayName, int Code);
+  void RegisterTagItemFunction(const char* sDisplayName, int Code);
   //-----------------------------------------------------------------
   //  Parameters :
   //      =>  sDisplayName    - the user readable name of the TAG item
@@ -3735,7 +3795,7 @@ public:
 
   //---RegisterFpList------------------------------------------------
 
-  CFlightPlanList RegisterFpList(const char *sListName);
+  CFlightPlanList RegisterFpList(const char* sListName);
   //-----------------------------------------------------------------
   //  Parameters :
   //      =>  sListName   - the name of the list box
@@ -3750,7 +3810,7 @@ public:
 
   //---RegisterToolbarItem-------------------------------------------
 
-  void RegisterToolbarItem(int ItemId, const char *sItemName);
+  void RegisterToolbarItem(int ItemId, const char* sItemName);
   //-----------------------------------------------------------------
   //  Parameters :
   //      =>  ItemId      - the ID of the toolbar item
@@ -3776,8 +3836,9 @@ public:
 
   //---SaveDataToSettings--------------------------------------------
 
-  void SaveDataToSettings(const char *sVariableName,
-                          const char *sVariableDescription, const char *sValue);
+  void SaveDataToSettings(const char* sVariableName,
+                          const char* sVariableDescription,
+                          const char* sValue);
   //-----------------------------------------------------------------
   //  Parameters :
   //      =>  sVariableName       - the name under your value will be saved
@@ -3796,7 +3857,7 @@ public:
 
   //---GetDataFromSettings-------------------------------------------
 
-  const char *GetDataFromSettings(const char *sVariableName);
+  const char* GetDataFromSettings(const char* sVariableName);
   //-----------------------------------------------------------------
   //  Parameters :
   //      =>  sVariableName       - the name under your value was saved
@@ -3811,7 +3872,7 @@ public:
 
   //---OpenPopupEdit-------------------------------------------------
 
-  void OpenPopupEdit(RECT Area, int FunctionId, const char *sInitialValue);
+  void OpenPopupEdit(RECT Area, int FunctionId, const char* sInitialValue);
   //-----------------------------------------------------------------
   //  Parameters :
   //      =>  Area            - the rectangle where the edit box
@@ -3830,7 +3891,7 @@ public:
 
   //---OpenPopupList-------------------------------------------------
 
-  void OpenPopupList(RECT Area, const char *sTitle, int ColumnNumber);
+  void OpenPopupList(RECT Area, const char* sTitle, int ColumnNumber);
   //-----------------------------------------------------------------
   //  Parameters :
   //      =>  Area        - the requested position of the center
@@ -3848,10 +3909,13 @@ public:
 
   //---AddPopupListElement-------------------------------------------
 
-  void AddPopupListElement(const char *sString1, const char *sString2,
-                           int FunctionId, bool Selected = false,
+  void AddPopupListElement(const char* sString1,
+                           const char* sString2,
+                           int FunctionId,
+                           bool Selected = false,
                            int Checked = POPUP_ELEMENT_NO_CHECKBOX,
-                           bool Disabled = false, bool Fixed = false);
+                           bool Disabled = false,
+                           bool Fixed = false);
   //-----------------------------------------------------------------
   //  Parameters :
   //      =>  sString1,
@@ -3896,7 +3960,7 @@ public:
 
   //---SelectScreenSectorfile----------------------------------------
 
-  void SelectScreenSectorfile(CRadarScreen *pRadarScreen);
+  void SelectScreenSectorfile(CRadarScreen* pRadarScreen);
   //-----------------------------------------------------------------
   //  Parameters :
   //      =>  pRadarScreen    - the screen reference
@@ -3921,7 +3985,7 @@ public:
 
   //---FlightPlanSelect----------------------------------------------
 
-  CFlightPlan FlightPlanSelect(const char *sCallsign) const;
+  CFlightPlan FlightPlanSelect(const char* sCallsign) const;
   //-----------------------------------------------------------------
   //  Parameters :
   //      =>  sCallsign   - the callsign of the FP to be selected
@@ -3941,7 +4005,7 @@ public:
 
   //---RadarTargetSelect---------------------------------------------
 
-  CRadarTarget RadarTargetSelect(const char *sCallsign) const;
+  CRadarTarget RadarTargetSelect(const char* sCallsign) const;
   //-----------------------------------------------------------------
   //  Parameters :
   //      =>  sCallsign   - the callsign of the RT to be selected
@@ -4070,7 +4134,7 @@ public:
 
   //---ControllerSelect----------------------------------------------
 
-  CController ControllerSelect(const char *sCallsign) const;
+  CController ControllerSelect(const char* sCallsign) const;
   //-----------------------------------------------------------------
   //  Parameters :
   //      =>  sCallsign   - the callsign of the controller to be selected
@@ -4090,7 +4154,7 @@ public:
 
   //---ControllerSelectByPositionId----------------------------------
 
-  CController ControllerSelectByPositionId(const char *sPositionId) const;
+  CController ControllerSelectByPositionId(const char* sPositionId) const;
   //-----------------------------------------------------------------
   //  Parameters :
   //      =>  sPositionId - the position ID of the controller to be selected
@@ -4212,10 +4276,14 @@ public:
 
   //---DisplayUserMessage--------------------------------------------
 
-  void DisplayUserMessage(const char *sHandlerName, const char *sSenderName,
-                          const char *sMessage, bool ShowHandler,
-                          bool ShowUnread, bool ShowUnreadEvenIfBusy,
-                          bool StartFlashing, bool NeedConfirmation);
+  void DisplayUserMessage(const char* sHandlerName,
+                          const char* sSenderName,
+                          const char* sMessage,
+                          bool ShowHandler,
+                          bool ShowUnread,
+                          bool ShowUnreadEvenIfBusy,
+                          bool StartFlashing,
+                          bool NeedConfirmation);
   //-----------------------------------------------------------------
   //  Parameters :
   //      =>  sHandlerName    - the message handler name; this name
@@ -4250,8 +4318,8 @@ public:
 
   //---GroundToArChannelSelectNext-----------------------------------
 
-  CGrountToAirChannel
-  GroundToArChannelSelectNext(CGrountToAirChannel CurrentChannel);
+  CGrountToAirChannel GroundToArChannelSelectNext(
+    CGrountToAirChannel CurrentChannel);
   //-----------------------------------------------------------------
   //  Parameters :
   //      =>  CurrentChannel  - the current channel
@@ -4264,7 +4332,7 @@ public:
 
   //---AddAlias------------------------------------------------------
 
-  void AddAlias(const char *sAliasName, const char *sAliasValue);
+  void AddAlias(const char* sAliasName, const char* sAliasValue);
   //-----------------------------------------------------------------
   //  Parameters :
   //      =>  sAliasName  - the alias name (must begin with .)
@@ -4337,7 +4405,7 @@ public:
 //---EuroScopePlugInInit-----------------------------------------------
 
 void __declspec(dllexport)
-EuroScopePlugInInit(EuroScopePlugIn ::CPlugIn **ppPlugInInstance);
+EuroScopePlugInInit(EuroScopePlugIn ::CPlugIn** ppPlugInInstance);
 //---------------------------------------------------------------------
 //  Parameters :
 //      <=  ppPlugInInstance- a pointer to the plug-in instance
@@ -4355,7 +4423,8 @@ EuroScopePlugInInit(EuroScopePlugIn ::CPlugIn **ppPlugInInstance);
 
 //---EuroScopePlugInExit-----------------------------------------------
 
-void __declspec(dllexport) EuroScopePlugInExit(void);
+void __declspec(dllexport)
+EuroScopePlugInExit(void);
 //---------------------------------------------------------------------
 //  Description :
 //      Every plugin have to implement this function. When EuroScope

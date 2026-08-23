@@ -7,7 +7,7 @@
 use std::ffi::CString;
 pub use std::ffi::{c_char, c_int, c_void};
 
-pub use euroscope_sys::{EsHandle, FlightPlanPtr, PluginPtr, RustPluginMeta};
+pub use euroscope_sys::{EsHandle, FlightPlanPtr, PluginPtr, RustPluginMeta, es_shim_anchor};
 
 use crate::{
     Context, Controller, FlightPlan, FlightPlanList, GroundToAirChannel, Hdc, Plugin, Point,
@@ -570,11 +570,23 @@ pub unsafe fn screen_on_flight_strip_pushed(
 ///
 /// Emits `#[no_mangle]` definitions for the `rust_*` callbacks the C++ shim
 /// imports. Invoke exactly once per plugin crate: `register_plugin!(MyPlugin);`
+///
+/// It also pulls the shim's exported entry points into the `cdylib`. Leave the
+/// macro out and the crate still compiles, but the resulting DLL exports
+/// nothing and EuroScope refuses to load it — so if a plugin never shows up in
+/// EuroScope, check this macro is invoked before looking anywhere else.
 #[macro_export]
 macro_rules! register_plugin {
     ($plugin:ty) => {
         const _: () = {
             use $crate::__macro_support as __es;
+
+            // Drag the shim's `core.cpp` into the link so the DLL actually
+            // exports `EuroScopePlugInInit` / `EuroScopePlugInExit`. Nothing
+            // calls this; `#[used]` keeps the reference alive so the linker
+            // pulls the object out of the static library. See `es_shim_anchor`.
+            #[used]
+            static ES_SHIM_ANCHOR: unsafe extern "C" fn() = __es::es_shim_anchor;
 
             #[unsafe(no_mangle)]
             extern "C" fn rust_plugin_metadata(out: *mut __es::RustPluginMeta) {

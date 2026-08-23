@@ -5,6 +5,15 @@ use std::ffi::{c_char, c_int};
 use crate::PluginPtr;
 
 unsafe extern "C" {
+    /// Link seed for the shim's exported entry points, see `shim/core.cpp`.
+    ///
+    /// Does nothing when called; what matters is *referencing* it, which pulls
+    /// `core.cpp` — and so `EuroScopePlugInInit` / `EuroScopePlugInExit` — into
+    /// the plugin. `euroscope::register_plugin!` does that for you; a crate
+    /// using this one directly must reference it from a `#[used]` static or
+    /// EuroScope will find no entry points in the finished DLL.
+    pub fn es_shim_anchor();
+
     /// `CPlugIn::DisplayUserMessage` — print a line into the controller's
     /// message/chat area. All strings are borrowed NUL-terminated ANSI.
     pub fn es_plugin_display_user_message(
