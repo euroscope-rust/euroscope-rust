@@ -12,7 +12,7 @@ fmt:
 [private]
 ci-fmt:
     Get-ChildItem -Recurse -Include *.cpp, *.h | ForEach-Object { clang-format -style=Mozilla --dry-run --Werror $_.FullName }
-    cargo +night fmt --check
+    cargo +nightly fmt --check
 
 alias l := lint
 # Lint code
