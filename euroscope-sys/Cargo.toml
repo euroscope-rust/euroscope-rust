@@ -1,0 +1,20 @@
+[package]
+name = "euroscope-sys"
+description = "Raw FFI bindings and C++ glue shim for the EuroScope plugin SDK"
+version = "0.0.4"
+authors.workspace = true
+edition.workspace = true
+readme.workspace = true
+homepage.workspace = true
+repository.workspace = true
+license.workspace = true
+keywords.workspace = true
+categories = ["aerospace::simulation", "external-ffi-bindings"]
+links = "euroscope_shim"
+
+[build-dependencies]
+cc.workspace = true
+
+[package.metadata.docs.rs]
+default-target = "i686-pc-windows-msvc"
+targets = []

@@ -1,0 +1,5 @@
+# EuroScope is a 32-bit MFC application (VS2005 / CRT 8.0), so every plugin and
+# the C++ shim must be built for i686. Pin it here so a bare `cargo build` is
+# always correct instead of silently producing an unloadable x64 DLL.
+[build]
+target = "i686-pc-windows-msvc"
