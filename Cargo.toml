@@ -12,7 +12,7 @@ license = "EUPL-1.2"
 keywords = ["euroscope", "vatsim", "plugin"]
 
 [workspace.dependencies]
-argh = "0.1"
+argh = { version = "0.1", default-features = false, features = ["help"] }
 cc = "1.2"
 config = { version = "0.15", default-features = false, features = ["toml"] }
 parking_lot = "0.12"
