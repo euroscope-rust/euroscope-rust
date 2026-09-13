@@ -1,0 +1,30 @@
+[package]
+name = "euroscope-extra"
+description = "Opiniated utilites for writing EuroScope plugins"
+version = "0.0.0"
+authors.workspace = true
+edition.workspace = true
+readme.workspace = true
+homepage.workspace = true
+repository.workspace = true
+license.workspace = true
+keywords.workspace = true
+categories = ["aerospace::simulation", "api-bindings"]
+
+[features]
+default = ["command", "settings"]
+command = ["dep:argh"]
+settings = ["dep:config"]
+
+[dependencies]
+argh = { workspace = true, optional = true }
+config = { workspace = true, optional = true }
+
+euroscope = { path = "../euroscope", version = "0.0" }
+
+[lints]
+workspace = true
+
+[package.metadata.docs.rs]
+default-target = "i686-pc-windows-msvc"
+targets = []
